@@ -1,0 +1,26 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.btn.btn-primary{
+  background-color: #f20000;
+  border-color: #f20000;
+  position: relative;
+
+  &:hover{
+    border-color: #a30000;
+    background-color: #a30000;
+  }
+
+  &::before{
+    content: "";
+    position: absolute;
+    bottom: -1rem;
+    right: 0;
+    background-color: #0000007c;
+    width: 100%;
+    height: .15rem;
+  }
+}
