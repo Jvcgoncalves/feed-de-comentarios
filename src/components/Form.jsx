@@ -3,17 +3,33 @@ import Button from "./Button";
 import Input from "./Input";
 import Label from "./Label";
 import TextArea from "./TextArea";
+import PropType from "prop-types"
 
-export default function Form () {
+
+Form.propType = {
+  addComments: PropType.func
+}
+
+export default function Form ({addComments}) {
   const [email,setEmail] = useState("")
-  const [coment,setComent] = useState("")
+  const [comment,setComment] = useState("")
 
   function handleFormSubmit(ev){
     ev.preventDefault()
-    console.log(email)
-    console.log(coment)
+    const date = new Date()
 
-    setComent("")
+    const time = {
+      year: date.getFullYear(),
+      month: date.getMonth() + 1,
+      day: date.getDay(),
+      hours: date.getHours(),
+      minutes: date.getMinutes(),
+      seconds: date.getSeconds(),
+    }
+
+    addComments({email,comment,time})
+
+    setComment("")
     setEmail("")
   }
 
@@ -36,14 +52,14 @@ export default function Form () {
     <div className="mb-3">
     <Label
           className="form-label"
-          htmlFor={"coment-content"}
+          htmlFor={"comment-content"}
           labelContent={"Mensagem:"}
         />
         <TextArea 
         className={"form-control"}
-        id={"coment-content"}
-        value={coment}
-        setValue={setComent}
+        id={"comment-content"}
+        value={comment}
+        setValue={setComment}
         />
     </div>
     <Button 

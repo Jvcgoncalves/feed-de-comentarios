@@ -1,9 +1,7 @@
-import { Children } from "react";
-
-export default function Button ({children,classes}) {
+export default function Button ({children,classes,type = null}) {
 
   return (
-    <button type="submit" className={classes}>
+    <button type={type ?? "submit"} className={`${classes}`}>
         {children}
     </button>
   )
