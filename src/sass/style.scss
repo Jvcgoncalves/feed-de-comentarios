@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+.hide{
+  display: none !important;
+}
 
 .container{
   width: 30rem;
@@ -30,24 +33,56 @@
 
   .card{
     .card-title-box{
-      grid-template-columns: .8fr auto;
-
+      position: relative;
       h2{
         font-size: 1.5rem !important;
       }
-
-      span{
-        justify-self: flex-end;
-        background: url("/images/red-trash.svg");
+      #menu-toogle{
+        background: url("/images/icons8-menu-2-50.png");
         background-size: cover;
         cursor: pointer;
         width: 1.5rem;
         height: 1.5rem;
-        &:hover{
-          background: url("/images/black-trash.svg");
+      }
+      .manipulate-comment-menu{
+        position: absolute;
+        right: -2rem;
+        top: -2.2rem;
+        width: 2.5rem;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        transition: .5s;
+        #remove{
+          justify-self: flex-end;
+          background: url("/images/red-trash.svg");
           background-size: cover;
+          cursor: pointer;
+          width: 1.5rem;
+          height: 1.5rem;
+          &:hover{
+            background: url("/images/black-trash.svg");
+            background-size: cover;
+          }
+        }
+        #edit{
+          justify-self: flex-end;
+          background: url("/images/icons8-editar-50.png");
+          background-size: cover;
+          cursor: pointer;
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
+        &.active{
+          width: 2.5rem;
+          height: 5rem;
+          visibility: visible;
+
         }
       }
+
+      
     }
   }
 }

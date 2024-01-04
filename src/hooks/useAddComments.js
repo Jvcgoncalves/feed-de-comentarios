@@ -12,9 +12,11 @@ export default function usaAddComments(){
       
       return [...state, newComment]
     })
-
-    console.log(comments)
   }
 
-  return {comments,addComments}
+  function removeComments(elementId){
+    setComments(state => state.filter(comment => comment.id !== elementId))
+  }
+
+  return {comments,addComments,removeComments}
 }

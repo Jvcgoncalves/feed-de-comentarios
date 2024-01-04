@@ -4,7 +4,7 @@ import usaAddComments from "./hooks/useAddComments"
 import "./sass/style.scss"
 
 function App() {
-  const {comments,addComments} = usaAddComments()
+  const {comments,addComments,removeComments } = usaAddComments()
 
 
   return (
@@ -16,17 +16,20 @@ function App() {
         />
         <div className="coments mt-5 d-flex flex-column row-gap-4">
           {
-            comments.map(comment=>{
-              console.log(comment)
-              return (
+            comments.length > 0 ? (
+            comments.map(comment=>
+              (
                 <RenderComments 
                 key={comment.id}
+                id={comment.id}
                 comment={comment.comment}
                 email={comment.email}
                 time={comment.time}
+                removeComments={() => removeComments(comment.id)}
                 />
+              ))) : (
+                <h2 className="h4">Seja o primeiro a comentar!</h2>
               )
-            })
           }
         </div>
       </div>

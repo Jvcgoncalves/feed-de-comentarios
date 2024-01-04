@@ -26,7 +26,6 @@ export default function Form ({addComments}) {
       minutes: date.getMinutes(),
       seconds: date.getSeconds(),
     }
-
     addComments({email,comment,time})
 
     setComment("")
