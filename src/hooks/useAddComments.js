@@ -10,7 +10,7 @@ export default function usaAddComments(){
 
     setComments(state => {
       
-      return [...state, newComment]
+      return [newComment, ...state ]
     })
   }
 

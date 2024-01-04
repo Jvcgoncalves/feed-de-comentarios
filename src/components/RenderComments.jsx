@@ -5,10 +5,9 @@ RenderComments.propTypes = {
   comment: PropTypes.string,
   time: PropTypes.object,
   removeComments: PropTypes.func,
-  editComments: PropTypes.func,
 }
 
-export default function RenderComments({email,comment,time,id,removeComments,editComments}) {
+export default function RenderComments({email,comment,time,id,removeComments}) {
 
   const timeFormatted = `${time.day < 10 ? `0${time.day}` : time.day}/${time.month < 10 ? `0${time.month}` : time.month}/${time.year}, ${time.hours}:${time.minutes}:${time.seconds}`
 
